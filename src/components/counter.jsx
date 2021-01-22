@@ -4,20 +4,15 @@ class Counter extends Component {
   state = {
     count: 1,
   };
-  // either bind this to current object for having reference or use arrow functions
-  //constructor() {
-    //super();
-    //this.handleIncrement = this.handleIncrement.bind(this);
- // }
+  
   styles = {
     fontSize: 10,
     fontWeight: "bold",
   };
-  handleIncrement = () =>{
-    console.log("increment clicked", this);
-    //obj.method() - > this returns referencee to obj
-    // function() - > this returns undefined or window object depending on strict mode
-    //we use bind method to solve the problem
+  handleIncrement = () =>{ 
+   // this.state.count++; // doesnt work
+   this.setState({count:this.state.count+1}) // react updates the state property and inside that overrides count with new value
+   //if value doesnt exist react will merge the value
   }
   render() {
     // render the className dynamically
