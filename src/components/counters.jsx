@@ -15,6 +15,14 @@ class Counters extends Component {
     const counters = this.state.counters.filter((c) => c.id !== counterId);
     this.setState({ counters: counters });
   };
+  handleIncrement = (counter) => {
+    console.log(counter)
+    const counters = [...this.state.counters]; //cloning of the arrayy
+    const index= counters.indexOf(counter);
+    counters[index] = {...counter}
+    counters[index].value++;
+    this.setState({counters});
+  };
   handleReset = () => {
     const counters = this.state.counters.map((c) => {
       c.value = 0;
@@ -33,6 +41,7 @@ class Counters extends Component {
             key={counter.id}
             counter={counter}
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
           />
         ))}
       </div>
