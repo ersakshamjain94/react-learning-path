@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-
   styles = {
     fontSize: 10,
     fontWeight: "bold",
   };
-  
+
   // Rule of thumb  cComponent that owns a piece of state should be the one modifying it
   // In our case Components is the component owning piece of state hence it should be one modifying it
   // we have to raise event from Child to parent Counter component will raise the event, Counters will handle the eevent
@@ -34,7 +33,8 @@ class Counter extends Component {
   }
   getBadgeClasses() {
     let classes = "badge m-2 ";
-    classes += this.props.counter.value === 0 ? "badge-warning" : "badge-primary";
+    classes +=
+      this.props.counter.value === 0 ? "badge-warning" : "badge-primary";
     return classes;
   }
 

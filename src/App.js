@@ -1,8 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { Component } from 'react';
-import NavBar from './components/navbar'
-import Counters from './components/counters'
+import logo from "./logo.svg";
+import "./App.css";
+import React, { Component } from "react";
+import NavBar from "./components/navbar";
+import Counters from "./components/counters";
 class App extends Component {
   state = {
     counters: [
@@ -20,28 +20,35 @@ class App extends Component {
   };
   handleIncrement = (counter) => {
     const counters = [...this.state.counters]; //cloning of the arrayy
-    const index= counters.indexOf(counter);
-    counters[index] = {...counter}
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
     counters[index].value++;
-    this.setState({counters});
+    this.setState({ counters });
   };
   handleReset = () => {
     const counters = this.state.counters.map((c) => {
       c.value = 0;
       return c;
     });
-    this.setState({counters:counters})
+    this.setState({ counters: counters });
   };
-  render() { 
+  render() {
     return (
       <React.Fragment>
-      <NavBar totalCounters = { this.state.counters.filter(c=>c.value>0).length}/>
-      <main className = "container">
-        <Counters counters = {this.state.counters} onReset = {this.handleReset} onIncrement = {this.handleIncrement} onDelete = {this.handleDelete}/>
-      </main>
+        <NavBar
+          totalCounters={this.state.counters.filter((c) => c.value > 0).length}
+        />
+        <main className="container">
+          <Counters
+            counters={this.state.counters}
+            onReset={this.handleReset}
+            onIncrement={this.handleIncrement}
+            onDelete={this.handleDelete}
+          />
+        </main>
       </React.Fragment>
     );
   }
 }
- 
+
 export default App;
