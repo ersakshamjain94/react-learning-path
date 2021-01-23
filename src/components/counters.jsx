@@ -16,7 +16,6 @@ class Counters extends Component {
     this.setState({ counters: counters });
   };
   handleIncrement = (counter) => {
-    console.log(counter)
     const counters = [...this.state.counters]; //cloning of the arrayy
     const index= counters.indexOf(counter);
     counters[index] = {...counter}
