@@ -18,9 +18,10 @@ class Counter extends Component {
   render() {
     // render the className dynamically
     // we are passing reference of function in onClick and not calling the function
-    console.log('props',this.props) //each Component has a special property props which has the properties we pass to it
+    console.log('props',this.props) //props has children
     return (
       <div>
+          {this.props.children}; 
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => this.handleIncrement(1)}
