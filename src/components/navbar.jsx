@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-const NavBar = ({totalCounters}) => {
+const NavBar = ({totalCounters}) => { //object destructuring props - > totalCounters
     return (
       <nav className="navbar navbar-light bg-light">
         <div className="container-fluid">
